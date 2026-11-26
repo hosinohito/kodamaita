@@ -1,4 +1,4 @@
-# こだま板（仮）1.1.0
+# こだま板（仮）1.2.0
 
 こだま板は、参加端末の保管ノード同士で投稿を受け渡す掲示板です。
 
@@ -9,23 +9,21 @@
 動作確認はwindows版とandroid版でのみ行っています。mac,linuxで不具合が出た場合、できるだけ詳細に症状を教えてもらうと対応できるかもしれません。
 iOS版は偏った思想による検閲とショバ代のために存在しえません。
 
-## 1.1.0の変更点
+## 1.2.0の変更点
 
-- 保存確認が0台の投稿は「送信待ち」、1台で確認できた投稿は「1台に保存済み・複製待ち（1/2）」と表示します。
-- 異なる2台の確認で待ち表示が消えます。投稿をし直さなくても、同じ投稿が自動で再送されます。
-
-- 投稿者の自己紹介で本文を選択してコピーできます。「コピー」は、選択していなければ全文をコピーします。
-
-- AndroidをWi-Fiで使う際、「サーバー公開手順」にルーターで許可するスマホのIPv6アドレスとTCPポートを表示します。
+- 開いているスレッドの新着レスを、開いたとき・アプリに戻ったとき・閲覧中およそ25秒ごとに自動取得します。
+- 対応ノードには表示中のスレッドだけを問い合わせます。一部のノードにしかないレスも拾えるよう、別のノードにも定期的に確認します。
+- 旧版のノードとの通常同期は引き続き使えます。送信待ちや複製待ちの判定は変更していません。
+- 投稿・返信・自己紹介を、通常の文章表示のまま選択してコピーできます。
 
 ## インストールと起動
 
 | OS | ダウンロードするファイル | 起動手順 |
 | --- | --- | --- |
-| Windows 10/11 x64 | `Kodamaita-1.1.0-win-x64.zip` | [.NET 10.0.15以降のRuntime](https://dotnet.microsoft.com/download/dotnet/10.0) の Windows x64 を入れ、ZIPを展開して `Kodamaita.exe` を開く。 |
-| Android ARM64（Android 6以降） | `Kodamaita-1.1.0-android-arm64.apk` | APKをダウンロードして開く。端末に求められた場合は、開いたブラウザーまたはファイルアプリに「この提供元を許可」を設定してインストールする。更新は既存アプリを削除せず上書きする。 |
-| macOS（Appleシリコン／Intel） | `Kodamaita-1.1.0-osx-arm64.zip`（Appleシリコン）または `Kodamaita-1.1.0-osx-x64.zip`（Intel） | CPUに合う [.NET 10.0.15以降のRuntime](https://dotnet.microsoft.com/download/dotnet/10.0) を導入し、ZIPを展開。ターミナルで展開先に移動し `dotnet Kodamaita.Desktop.dll`。署名・公証済みのアプリではありません。 |
-| Linux x64／ARM64 | `Kodamaita-1.1.0-linux-x64.zip` または `Kodamaita-1.1.0-linux-arm64.zip` | グラフィカルなデスクトップ環境で、CPUに合う [.NET 10.0.15以降のRuntime](https://dotnet.microsoft.com/download/dotnet/10.0) とディストリビューションのX11（WaylandではXWayland）・Fontconfigとデスクトップ用フォントを入れる。ZIPを展開し、展開先で `sh start-kodamaita.sh`。 |
+| Windows 10/11 x64 | `Kodamaita-1.2.0-win-x64.zip` | [.NET 10.0.15以降のRuntime](https://dotnet.microsoft.com/download/dotnet/10.0) の Windows x64 を入れ、ZIPを展開して `Kodamaita.exe` を開く。 |
+| Android ARM64（Android 6以降） | `Kodamaita-1.2.0-android-arm64.apk` | APKをダウンロードして開く。端末に求められた場合は、開いたブラウザーまたはファイルアプリに「この提供元を許可」を設定してインストールする。更新は既存アプリを削除せず上書きする。 |
+| macOS（Appleシリコン／Intel） | `Kodamaita-1.2.0-osx-arm64.zip`（Appleシリコン）または `Kodamaita-1.2.0-osx-x64.zip`（Intel） | CPUに合う [.NET 10.0.15以降のRuntime](https://dotnet.microsoft.com/download/dotnet/10.0) を導入し、ZIPを展開。ターミナルで展開先に移動し `dotnet Kodamaita.Desktop.dll`。署名・公証済みのアプリではありません。 |
+| Linux x64／ARM64 | `Kodamaita-1.2.0-linux-x64.zip` または `Kodamaita-1.2.0-linux-arm64.zip` | グラフィカルなデスクトップ環境で、CPUに合う [.NET 10.0.15以降のRuntime](https://dotnet.microsoft.com/download/dotnet/10.0) とディストリビューションのX11（WaylandではXWayland）・Fontconfigとデスクトップ用フォントを入れる。ZIPを展開し、展開先で `sh start-kodamaita.sh`。 |
 
 Windowsでの起動・投稿、Android APKの署名と版番号を確認しています。macOS・Linuxは対象CPU向けのビルドです。デスクトップ版の設定・投稿はアプリの隣の `kodamaita-data` に保存されます。更新時はこのフォルダーを残してください。
 
